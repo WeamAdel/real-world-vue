@@ -1,3 +1,3 @@
 export enum ApiEndPoint {
-    ALL_EVENTS = "/event"
+    ALL_EVENTS = "/events"
 }
