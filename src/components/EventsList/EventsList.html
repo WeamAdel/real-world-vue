@@ -1,6 +1,6 @@
 <ul class="events-list list-unstyled p-0 ml-0">
   <li class="events-list__event" v-for="event of events" :key="event.id">
-    <img class="events-list__event-image" :src="event.image" alt="" aria-hidden="true">
+    <img class="events-list__event-image" :src="event.image" alt="" aria-hidden="true" lazy="true">
     <p class="events-list__event-name">{{event.name}}</p>
     <p><address>{{event.location}}</address></p>
   </li>

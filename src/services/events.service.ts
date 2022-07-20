@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from "@/axios"
 import {ApiEndPoint} from "@/enums/ApiEndpoint";
 
 class EventsService {
     async getApiEvents() {
         return axios.get(ApiEndPoint.ALL_EVENTS).then(res => {
             return res.data
-        }).catch(err => {
-            console.log(err)
+        }).catch((err: Error) => {
+            console.log(err.message)
         })
     }
 }
