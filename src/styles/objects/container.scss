@@ -1,0 +1,8 @@
+:root {
+    --container-px: max(min(4vw, 72px), 16px);
+}
+
+.container {
+    padding-left: var(--container-px);
+    padding-right: var(--container-px);
+}

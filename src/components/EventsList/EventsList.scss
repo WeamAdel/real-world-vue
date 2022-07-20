@@ -1,0 +1,21 @@
+.events-list {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(max(min(20vw, 330px), 220px), 1fr)
+    );
+    gap: max(min(3vw, 44px), 20px);
+}
+
+.events-list__event-image {
+    width: 100%;
+    height: max(min(33vh, 400px), 250px);
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 16px;
+}
+
+.events-list__event-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
