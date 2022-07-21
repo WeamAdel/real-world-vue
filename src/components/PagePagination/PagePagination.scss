@@ -1,0 +1,12 @@
+.pagination__buttons {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.pagination__button--next {
+    grid-column: 2/3;
+}

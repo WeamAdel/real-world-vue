@@ -1,0 +1,12 @@
+<main>
+    <div class="container">
+        <h1>Events</h1>
+        <events-list :events="events"></events-list>
+        <page-pagination
+            linkName="events"
+            :pagesCount="pagesCount"
+            :currentPage="page"
+            :totalEventsCount="totalEventsCount"
+        ></page-pagination>
+    </div>
+</main>

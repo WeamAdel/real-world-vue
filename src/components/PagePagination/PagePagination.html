@@ -1,0 +1,18 @@
+<nav class="pagination">
+    <ul class="pagination__buttons list-unstyled">
+        <li
+            class="pagination__button pagination__button--prev"
+            v-if="hasPrevious"
+        >
+            <router-link :to="{name: linkName, query: {page: currentPage - 1}}"
+                >Previous</router-link
+            >
+        </li>
+
+        <li class="pagination__button pagination__button--next" v-if="hasNext">
+            <router-link :to="{name: linkName, query: {page: currentPage + 1}}"
+                >Next</router-link
+            >
+        </li>
+    </ul>
+</nav>
