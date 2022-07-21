@@ -4,14 +4,13 @@ export default {
     name: "events-list",
     components: {},
     props: [],
-    data() {
+    data(): {events: null | []} {
         return {
             events: null,
         };
     },
     computed: {},
-    mounted: async function() {
-        console.log("mounted");
+    created: async function() {
         const events = await EventsService.getApiEvents();
 
         if(events) {

@@ -1,0 +1,13 @@
+<main>
+  <div class="container">
+    <div class="event" v-if="event">
+      <h1>event-details-view Component</h1>
+
+      <img class="event__image" :src="event.image" alt="" aria-hidden="true" lazy="true">
+      <p class="event__name">{{event.name}}</p>
+      <p>
+        <address>{{event.location}}</address>
+      </p>
+    </div>
+  </div>
+</main>

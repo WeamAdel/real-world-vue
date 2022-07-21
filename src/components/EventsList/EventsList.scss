@@ -7,12 +7,26 @@
     gap: max(min(3vw, 44px), 20px);
 }
 
+.events-list__event-link {
+    color: var(--black-900);
+
+    &:visited {
+        color: var(--black-900);
+    }
+}
+
 .events-list__event-image {
     width: 100%;
     height: max(min(33vh, 400px), 250px);
     object-fit: cover;
     object-position: center;
     margin-bottom: 16px;
+    opacity: 0.75;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .events-list__event-name {

@@ -1,14 +1,18 @@
 // Elements
-@import "./elements/body.scss";
-@import "./elements/p.scss";
+@import "./elements/a";
+@import "./elements/body";
+@import "./elements/p";
 
 // Generics
-@import "./generics/typography.scss";
+@import "./generics/typography";
 
 // Objects
-@import "./objects/container.scss";
+@import "./objects/container";
+
+// Settings
+@import "./settings/colors";
 
 // Utilities
-@import "./utilities/list-unstyled.scss";
-@import "./utilities/margin.scss";
-@import "./utilities/padding.scss";
+@import "./utilities/list-unstyled";
+@import "./utilities/margin";
+@import "./utilities/padding";
