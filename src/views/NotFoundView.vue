@@ -5,31 +5,21 @@
     </section>
 </template>
 
-<script lang="js">
-
-  export default  {
+<script lang="ts">
+export default {
     name: 'not-found-view',
     props: {
-      resource: {
-        type: String,
-        default: "page",
-      }
+        resource: {
+            type: String,
+            default: 'page',
+        },
     },
-    data () {
-      return {
-
-      }
+    data() {
+        return {};
     },
-    methods: {
-
-    },
-    computed: {
-
-    }
-}
+    methods: {},
+    computed: {},
+};
 </script>
 
-<style scoped lang="scss">
-.not-found-view {
-}
-</style>
+<style scoped lang="scss"></style>

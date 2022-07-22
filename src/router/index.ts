@@ -1,7 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+
 import HomeView from '@/views/HomeView/index.vue';
 import EventsView from '@/views/EventsView/index.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
+
+// Dynamic import
+const EventDetailsView = () => {
+    return import('../views/EventDetailsView/index.vue');
+};
+
+import NProgress from 'nprogress';
+import { beforeEventDetailsEnter } from './functions';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -23,9 +32,8 @@ const routes: Array<RouteRecordRaw> = [
         path: '/events/:id',
         name: 'event-details',
         props: true,
-        component: () => {
-            return import('../views/EventDetailsView/index.vue');
-        },
+        component: EventDetailsView,
+        beforeEnter: beforeEventDetailsEnter,
     },
     {
         path: '/:catchAll(.*)',
@@ -43,6 +51,14 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
+});
+
+router.beforeEach(() => {
+    NProgress.start();
+});
+
+router.afterEach(() => {
+    NProgress.done();
 });
 
 export default router;

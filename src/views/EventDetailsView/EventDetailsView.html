@@ -4,16 +4,16 @@
 
     <section class="event">
       <!-- Event -->
-      <div class="event__wrapper" v-if="event">
-        <img class="event__image" :src="event.image" alt="" aria-hidden="true" lazy="true">
-        <h2 class="event__name">{{event.name}}</h2>
+      <div class="event__wrapper" v-if="GLOBAL_STORE.event.data">
+        <img class="event__image" :src="GLOBAL_STORE.event.data.image" alt="" aria-hidden="true" lazy="true">
+        <h2 class="event__name">{{GLOBAL_STORE.event.data.name}}</h2>
         <p>
-          <address>{{event.location}}</address>
+          <address>{{GLOBAL_STORE.event.data.location}}</address>
         </p>
       </div>
 
       <!-- Error -->
-      <p role="alert" v-if="error">{{errorMessage}}</p>
+      <p role="alert" v-if="errorMessage">{{errorMessage}}</p>
     </section>
 
   </div>

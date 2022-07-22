@@ -3,7 +3,17 @@ import PagePagination from '@/components/PagePagination/index.vue';
 
 import EventsService from '@/services/events.service';
 import { PAGINATION_LIMIT } from '@/utilities/constants';
-import { watchEffect } from 'vue';
+
+import { ComponentPublicInstance } from 'vue';
+import { NavigationGuardNext, RouteLocation } from 'vue-router';
+
+interface Data {
+    events: [];
+    totalEventsCount: number;
+    pagesCount: number;
+    currentPage: number;
+    perPageLimit: number;
+}
 
 export default {
     name: 'events-view',
@@ -12,7 +22,7 @@ export default {
         'page-pagination': PagePagination,
     },
     props: { page: { type: Number } },
-    data() {
+    data(): Data {
         return {
             events: [],
             totalEventsCount: 0,
@@ -21,26 +31,45 @@ export default {
             perPageLimit: PAGINATION_LIMIT,
         };
     },
-    created: function () {
-        watchEffect(async () => {
-            //@ts-ignore
-            const res = await EventsService.getApiEvents(this.page);
+    async beforeRouteEnter(
+        to: RouteLocation,
+        from: RouteLocation,
+        next: NavigationGuardNext
+    ) {
+        const res = await EventsService.getApiEvents(+(to.query.page || 1));
 
-            if (res && res.events) {
+        if (res && res.events) {
+            next((comp: ComponentPublicInstance) => {
                 //@ts-ignore
-                this.events = res.events;
+                comp.events = res.events;
                 //@ts-ignore
-                this.totalEventsCount = res.totalCount;
+                comp.totalEventsCount = res.totalCount;
                 //@ts-ignore
-                this.pagesCount = this.getPagesCount();
-            } else {
-                alert('Failed to get events');
-            }
-        });
+                comp.pagesCount = comp.getPagesCount();
+            });
+        } else {
+            alert('Failed to get events');
+        }
+    },
+    async beforeRouteUpdate(
+        to: RouteLocation,
+        from: RouteLocation,
+        next: NavigationGuardNext
+    ) {
+        const res = await EventsService.getApiEvents(+(to.query.page || 1));
+
+        if (res && res.events) {
+            this.events = res.events;
+            this.totalEventsCount = res.totalCount;
+            this.pagesCount = this.getPagesCount();
+        } else {
+            alert('Failed to get events');
+        }
+
+        next(true);
     },
     methods: {
         getPagesCount(): number {
-            //@ts-ignore
             const length = this.events.length;
 
             return length ? Math.ceil(length / PAGINATION_LIMIT) : 1;
