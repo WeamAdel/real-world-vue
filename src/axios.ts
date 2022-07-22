@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL:"https://my-json-server.typicode.com/WeamAdel/real-world-vue"
-})
+    baseURL: 'https://my-json-server.typicode.com/WeamAdel/real-world-vue',
+});
 
-export default  axiosInstance;
+export default axiosInstance;

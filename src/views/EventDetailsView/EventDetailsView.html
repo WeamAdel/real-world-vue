@@ -1,13 +1,20 @@
 <main>
   <div class="container">
-    <div class="event" v-if="event">
-      <h1>event-details-view Component</h1>
+    <h1>Event Details</h1>
 
-      <img class="event__image" :src="event.image" alt="" aria-hidden="true" lazy="true">
-      <p class="event__name">{{event.name}}</p>
-      <p>
-        <address>{{event.location}}</address>
-      </p>
-    </div>
+    <section class="event">
+      <!-- Event -->
+      <div class="event__wrapper" v-if="event">
+        <img class="event__image" :src="event.image" alt="" aria-hidden="true" lazy="true">
+        <h2 class="event__name">{{event.name}}</h2>
+        <p>
+          <address>{{event.location}}</address>
+        </p>
+      </div>
+
+      <!-- Error -->
+      <p role="alert" v-if="error">{{errorMessage}}</p>
+    </section>
+
   </div>
 </main>

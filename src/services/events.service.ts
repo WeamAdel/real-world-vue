@@ -1,5 +1,7 @@
 import axios from '@/axios';
 import { ApiEndPoint } from '@/enums/ApiEndpoint';
+import { EventApiError } from '@/errors/EventApiError';
+import { EventNotFoundError } from '@/errors/EventNotFoundError';
 import { PAGINATION_LIMIT } from '@/utilities/constants';
 
 interface EventResponse {
@@ -45,8 +47,12 @@ class EventsService {
             .then((res) => {
                 return res.data;
             })
-            .catch((err: Error) => {
-                console.log(err.message);
+            .catch(({ response: { status }, message }) => {
+                if (status === 404) {
+                    throw new EventNotFoundError(message);
+                } else {
+                    throw new EventApiError(message);
+                }
             });
     }
 }

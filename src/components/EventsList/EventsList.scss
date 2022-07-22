@@ -23,6 +23,7 @@
     margin-bottom: 16px;
     opacity: 0.75;
     transition: opacity 0.3s ease-in-out;
+    background-color: var(--gray-300);
 
     &:hover {
         opacity: 1;

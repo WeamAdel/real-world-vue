@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeView from '@/views/HomeView/index.vue';
 import EventsView from '@/views/EventsView/index.vue';
+import NotFoundView from '@/views/NotFoundView.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -25,6 +26,17 @@ const routes: Array<RouteRecordRaw> = [
         component: () => {
             return import('../views/EventDetailsView/index.vue');
         },
+    },
+    {
+        path: '/:catchAll(.*)',
+        name: 'not-found',
+        component: NotFoundView,
+    },
+    {
+        path: '/404/:resource',
+        name: 'resource-not-found',
+        component: NotFoundView,
+        props: true,
     },
 ];
 
