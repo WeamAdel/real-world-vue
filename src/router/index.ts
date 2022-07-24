@@ -3,6 +3,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeView from '@/views/HomeView/index.vue';
 import EventsView from '@/views/EventsView/index.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
+import CreateEventView from '@/views/CreateEventView.vue';
 
 // Dynamic import
 const EventDetailsView = () => {
@@ -34,6 +35,11 @@ const routes: Array<RouteRecordRaw> = [
         props: true,
         component: EventDetailsView,
         beforeEnter: beforeEventDetailsEnter,
+    },
+    {
+        path: '/create-event',
+        name: 'create-event',
+        component: CreateEventView,
     },
     {
         path: '/:catchAll(.*)',

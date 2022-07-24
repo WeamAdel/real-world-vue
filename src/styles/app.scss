@@ -1,6 +1,7 @@
 // Elements
 @import './elements/a';
 @import './elements/body';
+@import './elements/label.scss';
 @import './elements/p';
 
 // Generics
@@ -8,6 +9,7 @@
 
 // Objects
 @import './objects/container';
+@import './objects/forms.scss';
 
 // Settings
 @import './settings/colors';

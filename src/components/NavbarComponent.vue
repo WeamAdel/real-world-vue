@@ -14,14 +14,21 @@
                 active-class="navbar__link--active"
                 >Events</router-link
             >
+            |
+            <router-link
+                class="navbar__link"
+                to="/create-event"
+                active-class="navbar__link--active"
+                >Create Event</router-link
+            >
         </div>
     </nav>
 </template>
 
-<script lang="js">
-export default  {
-  name: 'navbar-component',
-}
+<script lang="ts">
+export default {
+    name: 'navbar-component',
+};
 </script>
 
 <style scoped lang="scss">
