@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import { GLOBAL_STORE } from './store';
+import { store } from './store';
 
 import 'nprogress/nprogress.css';
 
-createApp(App).use(router).provide('GLOBAL_STORE', GLOBAL_STORE).mount('#app');
+createApp(App).use(router).use(store).mount('#app');

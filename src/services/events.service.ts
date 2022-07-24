@@ -1,7 +1,10 @@
-import axios from '@/axios';
+import axios from '@/api/axios';
+import axiosLocal from '@/api/axios-local';
+
 import { ApiEndPoint } from '@/enums/ApiEndpoint';
 import { EventApiError } from '@/errors/EventApiError';
 import { EventNotFoundError } from '@/errors/EventNotFoundError';
+import { store } from '@/store';
 import { PAGINATION_LIMIT } from '@/utilities/constants';
 
 interface EventResponse {
@@ -53,6 +56,22 @@ class EventsService {
                 } else {
                     throw new EventApiError(message);
                 }
+            });
+    }
+
+    /**
+     * Creates a new event.
+     *
+     * @param event Event to be created.
+     */
+    async doApiCreteEvent(event: object) {
+        return await axiosLocal
+            .post('/events', event)
+            .then((res) => {
+                return res.data;
+            })
+            .catch((err) => {
+                return err;
             });
     }
 }

@@ -1,27 +1,18 @@
 <template lang="html">
     <navbar-component></navbar-component>
-    <p
-        role="alert"
-        v-if="GLOBAL_STORE.flashMessage"
-        style="
-            position: fixed;
-            right: var(--container-px);
-            background-color: darkred;
-            color: white;
-            padding: 0.5rem 1rem;
-        "
-    >
-        {{ GLOBAL_STORE.flashMessage }}
-    </p>
+    <flash-message></flash-message>
     <router-view />
 </template>
 
-<script lang="js">
-import NavbarComponent from "@/components/NavbarComponent";
+<script lang="ts">
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import FlashMessage from './components/FlashMessage.vue';
 
 export default {
-    components: { 'navbar-component': NavbarComponent },
-    inject: ['GLOBAL_STORE']
-}
+    components: {
+        'navbar-component': NavbarComponent,
+        'flash-message': FlashMessage,
+    },
+};
 </script>
 <style src="./styles/app.scss" lang="scss"></style>

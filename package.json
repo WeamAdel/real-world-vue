@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve & json-server --watch db.json",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "server": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "nprogress": "^0.2.0",
+    "uuid": "^8.3.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -19,6 +21,7 @@
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/nprogress": "^0.2.0",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",

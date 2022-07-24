@@ -10,14 +10,14 @@
             |
             <router-link
                 class="navbar__link"
-                to="/events"
+                :to="{ name: 'events' }"
                 active-class="navbar__link--active"
                 >Events</router-link
             >
             |
             <router-link
                 class="navbar__link"
-                to="/create-event"
+                :to="{ name: 'create-event' }"
                 active-class="navbar__link--active"
                 >Create Event</router-link
             >
